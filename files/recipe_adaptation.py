@@ -66,7 +66,7 @@ def get_DB_equivalent(idiet_item_list, bd_names_ , bd_names_mapping , model, num
     # get similarity between ingredient and dataset foods
     vector_similarity = np.zeros(len(bd_names_mapping))
     for i,item in enumerate(bd_names_mapping):
-        s = fjaccard_extended(idiet_item_list, item)
+        s = fjaccard_extended(idiet_item_list, item, modelo_guardado)
         vector_similarity[i] = s
 
     # identify the most accurate

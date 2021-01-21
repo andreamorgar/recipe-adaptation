@@ -25,31 +25,31 @@ import distance
 # Cargamos los modelos que necesitamos
 CUSTOM_FILTERS = [remove_stopwords, stem_text]
 
-#modelo_guardado = KeyedVectors.load("../models/v2/modelo3")
-#bigram_loaded = Phraser.load("../models/v2/my_bigram_model.pkl")
-#model_ft = KeyedVectors.load("../models/v2/model_fasttext")
+modelo_guardado = KeyedVectors.load("../models/v2/modelo3")
+bigram_loaded = Phraser.load("../models/v2/my_bigram_model.pkl")
+model_ft = KeyedVectors.load("../models/v2/model_fasttext")
 
 #%%
 
 # Función para aplicar el preprocesamiento realizado al modelo de lenguaje 
 # a las medidas de distancia
-#def preprocess_recipe(text_recipe, create_tokens = True, main_ingredient = False):
-#    if main_ingredient:
-#        pos = text_recipe.find(',')
-#        if pos != -1:
-#            text_recipe = text_recipe[0:(pos+1)]
-#            
-#            
-#    if create_tokens:
-#        tokens = list(gensim.utils.tokenize(text_recipe, lower=True))
-#        
-#    else:
-#        tokens = text_recipe
-#        
-#    tokens = preprocess_string(" ".join(tokens), CUSTOM_FILTERS) 
-#    sentenc = list(bigram_loaded[tokens])
-#    
-#    return sentenc
+def preprocess_recipe(text_recipe, create_tokens = True, main_ingredient = False):
+    if main_ingredient:
+        pos = text_recipe.find(',')
+        if pos != -1:
+            text_recipe = text_recipe[0:(pos+1)]
+            
+            
+    if create_tokens:
+        tokens = list(gensim.utils.tokenize(text_recipe, lower=True))
+        
+    else:
+        tokens = text_recipe
+        
+    tokens = preprocess_string(" ".join(tokens), CUSTOM_FILTERS) 
+    sentenc = list(bigram_loaded[tokens])
+    
+    return sentenc
 
 #%%
     
@@ -163,13 +163,13 @@ def fjaccard_extended(document1, document2, model):
     res = pertenencia_union/(pertenencia_cj1+pertenencia_cj2-pertenencia_union)
     return 1-res
      
-#fjaccard_extended(['raw','tomato'],['raw','tomate'],modelo_guardado)  
+fjaccard_extended(['raw','tomato'],['raw','tomate'],modelo_guardado)  
 
 #%%
 
 
 # Otra versión fuzzificada implementada (no nos permitió obtener buenos resultados)
-def fuzzyjaccard_euclidean(document1,document2,model):
+def fuzzyjaccard_euclidean(document1,document2,model = modelo_guardado):
 
     num = 0.0
     
