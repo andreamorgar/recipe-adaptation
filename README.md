@@ -1,6 +1,6 @@
 # A word embedding-based method for unsupervised adaptation of cooking recipes
 
-Code of the method proposed for the paper titled "A word embedding-based method for unsupervised adaptation of cooking recipes" (in process to submit to IEEE ACCESS)
+### Code of the method proposed for the paper titled "A word embedding-based method for unsupervised adaptation of cooking recipes" (in process to submit to IEEE ACCESS)
 
 ## Abstract
 
@@ -18,7 +18,7 @@ This repo contains the code and materials used for the paper "A word embedding-b
   - [Distance metric implementation](https://github.com/andreamorgar/recipe-adaptation/blob/main/files/fjaccard.py)
   - [Word embedding](https://github.com/andreamorgar/recipe-adaptation/blob/main/files/word_embedding.py)
   - [Word embedding comparison](https://github.com/andreamorgar/recipe-adaptation/blob/main/files/word-embedding-comparative.py)
-  - - [Code for recipe adaptation method](https://github.com/andreamorgar/recipe-adaptation/blob/main/files/recipe_adaptation.py)
+  - [Code for recipe adaptation method](https://github.com/andreamorgar/recipe-adaptation/blob/main/files/recipe_adaptation.py)
 
 ### Instructions
 - To get adapted recipes, firstly you need to download a recipe dataset. We recommend to use Food.com dataset available in Kaggle so as to not have to change any code ( [download here](https://www.kaggle.com/shuyangli94/food-com-recipes-and-user-interactions?select=RAW_recipes.csv))
@@ -27,4 +27,4 @@ This repo contains the code and materials used for the paper "A word embedding-b
 
   
 - If you only want to use the word embedding models, click [here](https://github.com/andreamorgar/recipe-adaptation/blob/main/models) to the trained food word embeddings.
-- If you only want to use the corpus dataset, click [here](https://github.com/andreamorgar/recipe-adaptation/blob/main/data)
+- If you only want to use the corpus dataset, click [here](https://github.com/andreamorgar/recipe-adaptation/blob/main/data).
