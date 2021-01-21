@@ -12,13 +12,9 @@ from gensim.models import KeyedVectors
 import pandas as pd
 import ast
 
-# Mount Drive files
-from google.colab import drive
-drive.mount('/content/drive', force_remount=False)
 
-sst_home = 'drive/My Drive/Colab Notebooks/Word embeddings/data/'
-sst_models = 'drive/My Drive/Colab Notebooks/Word embeddings/models/v2/'
-sst_file = 'drive/My Drive/Colab Notebooks/Word embeddings/'
+sst_home = '../data/'
+sst_models = '../models/v2/'
 
 def get_first(element):
     first_element = ast.literal_eval(element)[0]

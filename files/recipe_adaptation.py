@@ -166,7 +166,7 @@ bd_names = list(usda_ingredients['Main food description'])
 
 
 
-df_rcp = pd.read_csv('../data/food.com/RAW_recipes-foodcom-kaggle.csv')
+df_rcp = pd.read_csv('../data/RAW_recipes-foodcom-kaggle.csv')
 
 dict_rcp = df_rcp.to_dict('records')
 ##
