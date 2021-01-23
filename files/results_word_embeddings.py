@@ -121,29 +121,25 @@ for i in np.arange(0.001,0.5,0.01):
 
     ii.append(i)
 
+#%%
 print(len(result))
 import matplotlib.pyplot as plt
-plt.xlabel('Distance value of the mapping', fontsize=13)
-plt.ylabel('Number of mappings that match', fontsize=13)
+plt.xlabel('distance', fontsize=14)
+plt.ylabel('number of coincident mappings', fontsize=14)
 
-plt.plot(ii,total ,marker='o', markerfacecolor='darkgreen', markersize=3, color='lightgreen', linewidth=1, label="total of mappings")
-plt.plot(ii,equals_contained_list,marker='o', markerfacecolor='red', markersize=3, color='orange', linewidth=1, label="mapping in best three")
-plt.plot(ii,equals_contained_2_list,marker='o', markerfacecolor='black', markersize=3, color='gray', linewidth=1, label="mapping in best two")
-plt.plot(ii,equals_list,marker='o', markerfacecolor='blue', markersize=3, color='skyblue', linewidth=1, label="best mapping match")
-plt.legend(loc="upper left",fontsize=13)
-plt.rc('xtick',labelsize=15)
-plt.rc('ytick',labelsize=15)
-plt.title("Equivalent mappings (Word2vec vs FastText)",fontsize=15) 
+plt.plot(ii,total ,marker='o', markerfacecolor='darkgreen', markersize=4, color='lightgreen', linewidth=2, label="total of mappings")
+plt.plot(ii,equals_contained_list,marker='o', markerfacecolor='red', markersize=4, color='orange', linewidth=2, label="mapping in best three")
+plt.plot(ii,equals_contained_2_list,marker='o', markerfacecolor='black', markersize=4, color='gray', linewidth=2, label="mapping in best two")
+plt.plot(ii,equals_list,marker='o', markerfacecolor='blue', markersize=4, color='skyblue', linewidth=2, label="best mapping match")
+plt.legend(loc="upper left",fontsize=13.5)
+plt.rc('xtick',labelsize=14)
+plt.rc('ytick',labelsize=14)
+plt.title("Equivalent mappings (Word2vec vs FastText)",fontsize=15.5) 
 
 plt.savefig(sst_home + 'w2vec_vs_fasttext.png', dpi=150)
 
-from sklearn.metrics import cohen_kappa_score
-cohen_kappa_score(list(result['best_w2v']), list(result['best_glove']))
 
-cohen_kappa_score(list(result['best_w2v']), list(result['best_ft']))
-
-cohen_kappa_score(list(result['best_ft']), list(result['best_glove']))
-
+#%%
 equals_list = []
 ii = []
 equals_contained_list = []
@@ -159,19 +155,20 @@ for i in np.arange(0.001,0.5,0.01):
     result_contained = result_div[result_div['contained'] == True]
     equals_contained_list.append(len(result_contained))
     ii.append(i)
-
-plt.xlabel('Distance value of the mapping', fontsize=13)
-plt.ylabel('Number of mappings that match', fontsize=13)
-plt.plot(ii,total ,marker='o', markerfacecolor='darkgreen', markersize=3, color='lightgreen', linewidth=1, label="total of mappings")
-plt.plot(ii,equals_contained_list,marker='o', markerfacecolor='red', markersize=3, color='orange', linewidth=1, label="mapping in best three")
-plt.plot(ii,equals_contained_2_list,marker='o', markerfacecolor='black', markersize=3, color='gray', linewidth=1, label="mapping in best two")
-plt.plot(ii,equals_list,marker='o', markerfacecolor='blue', markersize=3, color='skyblue', linewidth=1, label="best mapping match")
-plt.legend(loc="upper left",fontsize=13)
-plt.rc('xtick',labelsize=15)
-plt.rc('ytick',labelsize=15)
-plt.title("Equivalent mappings (GloVe vs FastText)",fontsize=15) 
+#%%
+plt.xlabel('distance', fontsize=14)
+plt.ylabel('number of coincident mappings', fontsize=14)
+plt.plot(ii,total ,marker='o', markerfacecolor='darkgreen', markersize=4, color='lightgreen', linewidth=2, label="total of mappings")
+plt.plot(ii,equals_contained_list,marker='o', markerfacecolor='red', markersize=4, color='orange', linewidth=2, label="mapping in best three")
+plt.plot(ii,equals_contained_2_list,marker='o', markerfacecolor='black', markersize=4, color='gray', linewidth=2, label="mapping in best two")
+plt.plot(ii,equals_list,marker='o', markerfacecolor='blue', markersize=4, color='skyblue', linewidth=2, label="best mapping match")
+plt.legend(loc="upper left",fontsize=13.5)
+plt.rc('xtick',labelsize=14)
+plt.rc('ytick',labelsize=14)
+plt.title("Equivalent mappings (GloVe vs FastText)",fontsize=15.5) 
 
 plt.savefig(sst_home + 'glove_vs_fasttext.png', dpi=150)
+#%%
 
 equals_list = []
 ii = []
@@ -189,21 +186,31 @@ for i in np.arange(0.001,0.5,0.01):
     equals_contained_list.append(len(result_contained))
     ii.append(i)
 
-plt.xlabel('Distance value of the mapping', fontsize=13)
-plt.ylabel('Number of mappings that match', fontsize=13)
-
-plt.plot(ii,total ,marker='o', markerfacecolor='darkgreen', markersize=3, color='lightgreen', linewidth=1, label="total of mappings")
-plt.plot(ii,equals_contained_list,marker='o', markerfacecolor='red', markersize=3, color='orange', linewidth=1, label="mapping in best three")
-plt.plot(ii,equals_contained_2_list,marker='o', markerfacecolor='black', markersize=3, color='gray', linewidth=1, label="mapping in best two")
-plt.plot(ii,equals_list,marker='o', markerfacecolor='blue', markersize=3, color='skyblue', linewidth=1, label="best mapping match")
+#%%
+plt.xlabel('distance', fontsize=14)
+plt.ylabel('number of coincident mappings', fontsize=14)
+plt.plot(ii,total ,marker='o', markerfacecolor='darkgreen', markersize=4, color='lightgreen', linewidth=2, label="total of mappings")
+plt.plot(ii,equals_contained_list,marker='o', markerfacecolor='red', markersize=4, color='orange', linewidth=2, label="mapping in best three")
+plt.plot(ii,equals_contained_2_list,marker='o', markerfacecolor='black', markersize=4, color='gray', linewidth=2, label="mapping in best two")
+plt.plot(ii,equals_list,marker='o', markerfacecolor='blue', markersize=4, color='skyblue', linewidth=2, label="best mapping match")
 #plt.ylim([0, 110]) 
 #plt.hlines(y = 772, xmin=0, xmax=0.5 ,linestyle='dashed',color='gray', linewidth=1)
-plt.legend(loc="upper left",fontsize=13)
-plt.rc('xtick',labelsize=15)
-plt.rc('ytick',labelsize=15)
-plt.title("Equivalent mappings (GloVe vs Word2vec)",fontsize=15) 
+plt.legend(loc="upper left",fontsize=13.5)
+plt.rc('xtick',labelsize=14.0)
+plt.rc('ytick',labelsize=14.0)
+plt.title("Equivalent mappings (GloVe vs Word2vec)",fontsize=15.5) 
 plt.savefig(sst_home + 'glove_vs_w2v.png', dpi=150)
 
+#%%
+# kappa 1vs1
+
+from sklearn.metrics import cohen_kappa_score
+cohen_kappa_score(list(result['best_w2v']), list(result['best_glove']))
+
+cohen_kappa_score(list(result['best_w2v']), list(result['best_ft']))
+
+cohen_kappa_score(list(result['best_ft']), list(result['best_glove']))
+#%%
 from nltk import agreement
 
 # we obtain Fleiss kappa between the three models
