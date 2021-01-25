@@ -13,7 +13,7 @@ This repo contains the code and materials used for the paper "A word embedding-b
 ## Description of the repo
 - [Streamlit app code for validating recipes](https://github.com/andreamorgar/recipe-adaptation/blob/main/files/stream_lit_mongo.py)
 - [Data used for the experiments](https://github.com/andreamorgar/recipe-adaptation/blob/main/data)
-- [Code](https://github.com/andreamorgar/recipe-adaptation/blob/main/files):
+- [Code](https://github.com/andreamorgar/recipe-adaptation/blob/main/files)
   - [Obtain step preparations plain text](https://github.com/andreamorgar/recipe-adaptation/blob/main/files/create_plain_recipe_text.py):
   - [Distance metric implementation](https://github.com/andreamorgar/recipe-adaptation/blob/main/files/fjaccard.py)
   - [Word embedding](https://github.com/andreamorgar/recipe-adaptation/blob/main/files/word-embedding.py)
