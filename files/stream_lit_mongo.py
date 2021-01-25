@@ -410,7 +410,10 @@ if adaptation_option != "Form instructions":
     if st.button('Send ' + adaptation_option):
         user = str(os.environ.get("USER"))
         passw = str(os.environ.get("PASS"))
-        MONGODB_URI = "mongodb+srv://andreamorgar:tfm2020@recipesdb.0iqn3.mongodb.net/recipesdb?retryWrites=true&w=majority"
+        database_name = str(os.environ.get("DATABASENAME"))
+        collection_bd = str(os.environ.get("COLLECTION"))
+        
+        MONGODB_URI = "mongodb+srv://"+user+":"+passw+"@"+database_name+".0iqn3.mongodb.net/"+collection_bd+"+?retryWrites=true&w=majority"
         
         client = MongoClient(MONGODB_URI, connectTimeoutMS=30000, retryWrites = False)
         
