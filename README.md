@@ -21,7 +21,7 @@ This repo contains the code and materials used for the paper "A word embedding-b
   - [Code for recipe adaptation method](https://github.com/andreamorgar/recipe-adaptation/blob/main/files/recipe_adaptation.py)
 
 ### Instructions
-- To get adapted recipes, firstly you need to download a recipe dataset. We recommend to use Food.com dataset available in Kaggle so as to not have to change any code ([download here](https://www.kaggle.com/shuyangli94/food-com-recipes-and-user-interactions?select=RAW_recipes.csv))
+- To get adapted recipes, firstly you need to download a recipe dataset. We recommend to use Food.com dataset available in Kaggle so as to not have to change any code ([download here](https://www.kaggle.com/shuyangli94/food-com-recipes-and-user-interactions?select=RAW_recipes.csv)).
 - Then, adapting recipe following the code in here [here](https://github.com/andreamorgar/recipe-adaptation/blob/main/files/recipe_adaptation.py).
 
 
