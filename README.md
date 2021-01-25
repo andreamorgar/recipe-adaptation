@@ -11,20 +11,21 @@ Studying food recipes is indispensable to understand the science of cooking. An 
 This repo contains the code and materials used for the paper "A word embedding-based method for unsupervised adaptation of cooking recipes". A detailed explanation of the tree directory is detailed below.
 
 ## Description of the repo
-- [Streamlit app code for validating recipes]():
-- [Data used for the experiments](https://github.com/andreamorgar/recipe-adaptation/blob/main/data):
+- [Streamlit app code for validating recipes](https://github.com/andreamorgar/recipe-adaptation/blob/main/files/stream_lit_mongo.py)
+- [Data used for the experiments](https://github.com/andreamorgar/recipe-adaptation/blob/main/data)
 - [Code](https://github.com/andreamorgar/recipe-adaptation/blob/main/files):
   - [Obtain step preparations plain text](https://github.com/andreamorgar/recipe-adaptation/blob/main/files/create_plain_recipe_text.py):
   - [Distance metric implementation](https://github.com/andreamorgar/recipe-adaptation/blob/main/files/fjaccard.py)
-  - [Word embedding](https://github.com/andreamorgar/recipe-adaptation/blob/main/files/word_embedding.py)
+  - [Word embedding](https://github.com/andreamorgar/recipe-adaptation/blob/main/files/word-embedding.py)
   - [Word embedding comparison](https://github.com/andreamorgar/recipe-adaptation/blob/main/files/word-embedding-comparative.py)
   - [Code for recipe adaptation method](https://github.com/andreamorgar/recipe-adaptation/blob/main/files/recipe_adaptation.py)
 
 ### Instructions
-- To get adapted recipes, firstly you need to download a recipe dataset. We recommend to use Food.com dataset available in Kaggle so as to not have to change any code ( [download here](https://www.kaggle.com/shuyangli94/food-com-recipes-and-user-interactions?select=RAW_recipes.csv))
+- To get adapted recipes, firstly you need to download a recipe dataset. We recommend to use Food.com dataset available in Kaggle so as to not have to change any code ([download here](https://www.kaggle.com/shuyangli94/food-com-recipes-and-user-interactions?select=RAW_recipes.csv))
 - Then, adapting recipe following the code in here [here](https://github.com/andreamorgar/recipe-adaptation/blob/main/files/recipe_adaptation.py).
 
 
   
-- If you only want to use the word embedding models, click [here](https://github.com/andreamorgar/recipe-adaptation/blob/main/models) to the trained food word embeddings.
+- If you only want to use the word embedding models, click [here](https://github.com/andreamorgar/recipe-adaptation/blob/main/models/v2) to the trained food word embeddings.
 - If you only want to use the corpus dataset, click [here](https://github.com/andreamorgar/recipe-adaptation/blob/main/data).
+- CoFID food composition database original source is available [here](https://www.gov.uk/government/publications/composition-of-foods-integrated-dataset-cofid).
