@@ -24,7 +24,7 @@ from gensim.models import Word2Vec
 from gensim.models import KeyedVectors
 import gensim
 from gensim.parsing.preprocessing import preprocess_string, remove_stopwords, stem_text
-
+import pandas as pd
 
 #%%
 
@@ -35,56 +35,62 @@ labels_index = {}
 labels = []
 label_text = []
 
+corpus = True # variable to set if we used a corpus or we have to create it 
 
-print('Extracting recipe texts...')
-for name in sorted(os.listdir(TEXT_DATA_DIR)):
-    path = os.path.join(TEXT_DATA_DIR, name)
-    print(name)
-    if os.path.isdir(path):
-        label_id = len(labels_index)
-        # every directory is numbered
-        labels_index[name] = label_id
-        for fname in sorted(os.listdir(path)):
-            fpath = os.path.join(path, fname)
-            f = open(fpath, encoding='latin-1')
-            t = f.read()
-            texts.append(t)
-            f.close()
-            labels.append(label_id)
-            label_text.append(name)
-print('Found %s texts.' % len(texts))
+if corpus == False:
 
-# -----------------------------------------------------------------------------
-
-
-#1. Obtain tokens
-print('Obtain text tokens')
-tokens = [list(gensim.utils.tokenize(doc, lower=True)) for doc in texts]
-
-#2. Bigram model training
-print('Bigram model training')
-bigram_mdl = gensim.models.phrases.Phrases(tokens, min_count=1, threshold=2)
-
-# 3. Text preprocessing
-CUSTOM_FILTERS = [remove_stopwords, stem_text]
-tokens = [preprocess_string(" ".join(doc), CUSTOM_FILTERS) for doc in tokens]
-
-print('Apply bigram model to recipe texts')
-bigrams = bigram_mdl[tokens]
-# Save bigram model
-bigram_mdl.save("../models/v2/my_bigram_model.pkl")
+    print('Extracting recipe texts...')
+    for name in sorted(os.listdir(TEXT_DATA_DIR)):
+        path = os.path.join(TEXT_DATA_DIR, name)
+        print(name)
+        if os.path.isdir(path):
+            label_id = len(labels_index)
+            # every directory is numbered
+            labels_index[name] = label_id
+            for fname in sorted(os.listdir(path)):
+                fpath = os.path.join(path, fname)
+                f = open(fpath, encoding='latin-1')
+                t = f.read()
+                texts.append(t)
+                f.close()
+                labels.append(label_id)
+                label_text.append(name)
+    print('Found %s texts.' % len(texts))
 
 
 # -----------------------------------------------------------------------------
 
-# PARÁMETROS
-    # min_count: to ignore words that appears less than 3 times
-    # size: size of the word embedding vectors
-    # window: window size for the context of each word
-    # workers: number of proccess
-    # number of epochs for training
+
+    #1. Obtain tokens
+    print('Obtain text tokens')
+    tokens = [list(gensim.utils.tokenize(doc, lower=True)) for doc in texts]
     
-all_sentences = list(bigrams)
+    #2. Bigram model training
+    print('Bigram model training')
+    bigram_mdl = gensim.models.phrases.Phrases(tokens, min_count=1, threshold=2)
+    
+    # 3. Text preprocessing
+    CUSTOM_FILTERS = [remove_stopwords, stem_text]
+    tokens = [preprocess_string(" ".join(doc), CUSTOM_FILTERS) for doc in tokens]
+    
+    print('Apply bigram model to recipe texts')
+    bigrams = bigram_mdl[tokens]
+    # Save bigram model
+    bigram_mdl.save("../models/v2/my_bigram_model.pkl")
+    all_sentences = list(bigrams)
+
+else:
+    df = pd.read_csv("../data/corpus_word_embedding.csv")
+    all_sentences_joined  = list(df['preproc cooking steps'])
+    all_sentences = [ str(i).split(" ") for i in all_sentences_joined]
+    # -----------------------------------------------------------------------------
+    # PARÁMETROS
+        # min_count: to ignore words that appears less than 3 times
+        # size: size of the word embedding vectors
+        # window: window size for the context of each word
+        # workers: number of proccess
+        # number of epochs for training
+    
 print('Training w2v...')
 model = Word2Vec(all_sentences, min_count=3, size=300, workers=4, window=5, iter=30)       
 

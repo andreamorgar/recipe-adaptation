@@ -43,7 +43,7 @@ from gensim.models import FastText
 #modelo_fasttext.save("../models/v2/model_fasttext")
 
 modelo_w2v = KeyedVectors.load("../models/v2/modelo3")
-modelo_ft = KeyedVectors.load("../models/v2/model_fasttext")
+modelo_ft = KeyedVectors.load("../models/v2/modelo_fasttext")
 
 modelo_ft.wv.most_similar('cake')
 #%%
