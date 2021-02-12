@@ -1,6 +1,21 @@
 # A word embedding-based method for unsupervised adaptation of cooking recipes
 
-### Code of the method proposed for the paper titled "A word embedding-based method for unsupervised adaptation of cooking recipes" (in process to submit to IEEE ACCESS)
+### Code of the method proposed for the paper [A word embedding-based method for unsupervised adaptation of cooking recipes](https://ieeexplore.ieee.org/document/9351987) (accepted in IEEE ACCESS journal)
+
+
+#### Citation
+~~~
+@ARTICLE{9351987,
+  author={A. {Morales-Garzón} and J. {Gómez-Romero} and M. J. {Martin-Bautista}},
+  journal={IEEE Access}, 
+  title={A word embedding-based method for unsupervised adaptation of cooking recipes}, 
+  year={2021},
+  volume={},
+  number={},
+  pages={1-1},
+  doi={10.1109/ACCESS.2021.3058559}}
+~~~
+
 
 ## Abstract
 
